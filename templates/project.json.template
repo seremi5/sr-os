@@ -1,0 +1,27 @@
+{
+  "name": "{{PROJECT_NAME}}",
+  "goal": "{{PROJECT_GOAL}}",
+  "shape": "{{PROJECT_SHAPE}}",
+  "paths": {
+    "backend": "{{BACKEND_DIR}}",
+    "frontend": "{{FRONTEND_DIR}}"
+  },
+  "language": {
+    "user_facing": "{{USER_LANGUAGE}}",
+    "code_comments": "English"
+  },
+  "commands": {
+    "typecheck": "{{TYPECHECK_CMD}}",
+    "test": "{{TEST_CMD}}",
+    "test_e2e": "{{TEST_E2E_CMD}}",
+    "lint": "{{LINT_CMD}}",
+    "build": "{{BUILD_CMD}}",
+    "dev": "{{DEV_CMD}}"
+  },
+  "deployment": {
+    "frontend": "{{DEPLOY_FRONTEND}}",
+    "backend": "{{DEPLOY_BACKEND}}",
+    "branch_strategy": "{{BRANCH_STRATEGY}}"
+  },
+  "stack_summary": "{{STACK_SUMMARY}}"
+}
