@@ -25,5 +25,5 @@ case "$FILE_PATH" in
 esac
 
 echo "→ Lint: $(basename "$FILE_PATH")"
-cd "$PROJECT_ROOT" && eval "$LINT_CMD" "$FILE_PATH" 2>&1 | tail -10
+cd "$PROJECT_ROOT" && eval "$LINT_CMD" 2>&1 | tail -10
 exit 0
