@@ -1,6 +1,6 @@
 # Sergi's AI OS
 
-> Formerly `ai-forge` / `sr-pipeline`. The engineering standards didn't disappear — they're now one layer (`engineering/`) inside a larger system.
+> Formerly `ai-forge` / `sr-pipeline`. Two things merged here: the personal operating system (the five layers below) and the **PACT** framework, which is now the OS's engineering layer ([`engineering/pact/`](engineering/pact/)).
 
 A personal operating model for working with AI. Not a better model — a better setup. Five layers the agent reads so it knows who I am, what it can reach, what to reuse, what runs without me, and what to remember. One loop keeps it from rotting.
 
@@ -21,11 +21,14 @@ Built once. Portable across tools (Claude, Codex, Cursor, whatever's next). The 
 | **L5 · Memory** | What survives every conversation | [`memory.md`](memory.md) → `~/.claude/.../memory/` |
 | **The loop** | Weekly OS Audit — the keystone | [`audit.md`](audit.md) |
 
-Plus the engineering layer this repo grew out of:
+## The engineering layer
+
+How I build software with AI. Two toolkits, both in [`engineering/`](engineering/):
 
 | | | |
 |---|---|---|
-| **Engineering** | How I build AI pipelines (the old ai-forge) | [`engineering/`](engineering/) |
+| **PACT** | Portable Claude Code framework — 7 agents (Prepare→Architect→Code→Test), hooks, rules, templates. Installs into any project. | [`engineering/pact/`](engineering/pact/) |
+| **Pipeline standards** | Python AI-pipeline conventions: agent contract, debate pattern, config, starter template (the old ai-forge). | [`engineering/`](engineering/) |
 
 ---
 
@@ -38,9 +41,16 @@ cd ~/GitHub/ai-os
 claude
 ```
 
-**Making the OS govern *every* session** — add one routing line to the global `~/.claude/CLAUDE.md` so it points here for product/startup/writing work. Then the voice and domain apply everywhere, not only in this repo. (Editing the global config needs your explicit OK — see Status.)
+**Installing PACT into a project** — point Claude at the PACT subfolder:
 
-**Running the loop** — once a week, paste the audit from [`audit.md`](audit.md). Ten minutes. Approve 2–3 changes, reject 1–2, move on. Skip it and the OS rots.
+```bash
+git clone https://github.com/seremi5/ai-os /tmp/ai-os
+claude "install the framework from /tmp/ai-os/engineering/pact into this project"
+```
+
+**Making the OS govern *every* session** — add one routing line to the global `~/.claude/CLAUDE.md` so it points here for product/startup/writing work. (Editing the global config needs your explicit OK — see Status.)
+
+**Running the loop** — once a week the audit runs (see [`automations.md`](automations.md)); you approve 2–3 changes, reject 1–2, move on. Skip it and the OS rots.
 
 ---
 
@@ -50,22 +60,19 @@ claude
 ai-os/                       # the repo (was sr-pipeline / ai-forge)
 ├── README.md                # this file
 ├── CLAUDE.md                # L1 router — read first, ≤80 lines
-├── context/                 # L1 Context
-│   ├── profile.md           #   identity: voice, principles, role, banned phrases
-│   ├── strategy.md          #   this quarter's priorities (≤200 words)
-│   ├── domain.md            #   the area I own: fintech / AP·AR / e-invoicing
-│   └── terminology.md       #   guardrails: banned vocabulary
+├── context/                 # L1 Context (profile, strategy, domain, terminology)
 ├── connections.md           # L2 Connections inventory
 ├── skills/                  # L3 Skills catalog
-│   └── README.md
 ├── automations.md           # L4 Automations registry
 ├── memory.md                # L5 — pointer to ~/.claude memory (not duplicated)
 ├── audit.md                 # the Weekly OS Audit (the loop)
-└── engineering/             # how I build pipelines (the folded-in ai-forge)
-    ├── README.md
-    ├── standards/
-    ├── patterns/
-    └── template/
+├── audits/                  # dated audit outputs (YYYY-Www.md)
+└── engineering/             # how I build software with AI
+    ├── README.md            #   index for this layer
+    ├── pact/                #   the PACT framework (agents, hooks, rules, templates)
+    ├── standards/           #   ai-forge: agent contract, config
+    ├── patterns/            #   ai-forge: pipeline, debate
+    └── template/            #   ai-forge: Python starter
 ```
 
 ---
@@ -73,6 +80,8 @@ ai-os/                       # the repo (was sr-pipeline / ai-forge)
 ## Status
 
 - ✅ Renamed `sr-pipeline → ai-os` (folder + GitHub `seremi5/ai-os`; old name redirects).
-- ✅ Weekly OS Audit scheduled — see [`automations.md`](automations.md). Outputs land in [`audits/`](audits/).
+- ✅ PACT framework merged in as the engineering layer (`engineering/pact/`); nothing lost.
 - ⏳ Route the global `~/.claude/CLAUDE.md` into this OS — **needs your explicit OK** (it's the agent's own startup config).
+- ⏳ Fully-auto weekly audit (background job) — being wired; see [`automations.md`](automations.md).
 - ⚠️ Set the quarter's outcome metric in [`context/strategy.md`](context/strategy.md) — only you can.
+- ℹ️ PACT's own install docs (`engineering/pact/INSTALL.md`) still say "clone sr-pipeline" at root — update them to point at `engineering/pact/` when convenient.

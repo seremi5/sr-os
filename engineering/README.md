@@ -1,6 +1,9 @@
-# Engineering — AI pipeline standards
+# Engineering — how I build software with AI
 
-> **The engineering layer of the AI OS** (formerly the standalone `ai-forge` repo). The OS router (`../CLAUDE.md`) sends you here whenever a task is about building pipeline code. Everything below is unchanged from ai-forge.
+> **The engineering layer of the AI OS.** Two toolkits live here:
+>
+> - **[`pact/`](pact/) — the PACT framework.** Portable Claude Code setup (7 agents Prepare→Architect→Code→Test, hooks, rules, templates) that installs into any project. Start here for *building software* in any stack.
+> - **This folder (standards / patterns / template) — the ai-forge pipeline standards.** Python AI-pipeline conventions. Start here when *building a data/AI pipeline* in my style. Everything below is unchanged from ai-forge.
 
 Standards, patterns, and templates I use to build AI pipelines. Every project I ship follows these conventions — and any agent building a new pipeline in my style should start here.
 
