@@ -53,7 +53,7 @@ Each run is saved to [`audits/`](audits/) as `YYYY-Www.md` (ISO week). That give
 
 ## Cadence
 
-Run **every Monday morning** (~10 min). Either paste the prompt above, or rely on the scheduled routine — see [`automations.md`](automations.md). The routine writes its result into `audits/` and pings you; you still approve/reject by hand.
+Run **every Monday morning** (~10 min). Either paste the prompt above, or rely on the scheduled routine — see [`automations.md`](automations.md). The routine writes its result into `audits/` and opens it in your editor; you still approve/reject by hand.
 
 ## Your OS is alive when…
 

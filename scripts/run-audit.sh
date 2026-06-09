@@ -19,7 +19,9 @@ cd "$REPO"
 mkdir -p "$REPO/audits"
 echo "=== run ${TODAY} $(date '+%H:%M:%S') · week ${WEEK} ===" >"$LOG"
 
-notify() { osascript -e "display notification \"$1\" with title \"AI OS Weekly Audit\"" 2>/dev/null || true; }
+notify() { osascript -e "display notification \"$1\" with title \"SR-OS Weekly Audit\"" 2>/dev/null || true; }
+# Open the finished report in VS Code (by bundle id, wherever the app lives); fall back to the default .md app.
+open_report() { open -b com.microsoft.VSCode "$1" 2>/dev/null || open "$1" 2>/dev/null || true; }
 
 FULL_PROMPT="Today is ${TODAY}. The ISO week is ${WEEK}.
 
@@ -37,6 +39,7 @@ if "$CLAUDE" -p "$FULL_PROMPT" \
       --output-format text >"${OUT}.tmp" 2>>"$LOG" && [ -s "${OUT}.tmp" ]; then
   mv "${OUT}.tmp" "$OUT"
   echo "OK -> $OUT" >>"$LOG"
+  open_report "$OUT"
   notify "Ready: audits/${WEEK}.md — approve 2–3, reject 1–2."
 else
   rm -f "${OUT}.tmp"

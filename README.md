@@ -48,15 +48,13 @@ Then tell Claude the same line. It **auto-detects** your stack and build/test/li
 
 Full guide, module menu, and the "make it a `/command`" shortcut: **[engineering/aitelier/README.md](engineering/aitelier/README.md)**.
 
-> The engineering folder also keeps the older **ai-forge** Python AI-pipeline standards (`standards/`, `patterns/`, `template/`) — reference material for building data/AI pipelines.
-
 ---
 
 ## Running it day to day
 
 - **Open it:** `cd ~/GitHub/sr-os && claude` — `CLAUDE.md` loads first and routes the assistant to the right context before it answers.
 - **Everywhere else:** nothing to do. The global `~/.claude/CLAUDE.md` points here, so the context applies in any project you open.
-- **The Monday loop is automatic** ([`automations.md`](automations.md)) — it writes `audits/<week>.md` and pings you. Open it, approve a few changes, reject a few. That ten minutes is what keeps the whole thing from rotting.
+- **The Monday loop is automatic** ([`automations.md`](automations.md)) — it writes `audits/<week>.md` and **opens it in your editor** (if the Mac was asleep at 08:00, the next time you open it). Approve a few changes, reject a few. That ten minutes is what keeps the whole thing from rotting.
 
 ---
 
@@ -74,19 +72,6 @@ sr-os/                       # the repo (was sr-pipeline / ai-forge)
 ├── audit.md                 # the Weekly OS Audit (the loop)
 ├── audits/                  # dated audit outputs (YYYY-Www.md)
 └── engineering/             # how I build software with AI
-    ├── README.md            #   index for this layer
-    ├── aitelier/            #   AItelier — the composable framework
-    ├── standards/           #   ai-forge: agent contract, config
-    ├── patterns/            #   ai-forge: pipeline, debate
-    └── template/            #   ai-forge: Python starter
+    └── aitelier/            #   AItelier — the composable framework
 ```
 
----
-
-## Status
-
-- ✅ Renamed `sr-pipeline → sr-os` (folder + GitHub `seremi5/sr-os`; old name redirects).
-- ✅ **AItelier** is the engineering layer — composable, file-based ([`engineering/aitelier/`](engineering/aitelier/)).
-- ✅ Global `~/.claude/CLAUDE.md` routes here for product/startup/writing work.
-- ✅ Weekly OS Audit is fully automatic — a macOS LaunchAgent runs headless `claude` every Monday 08:00 → `audits/<week>.md` + a notification.
-- ⚠️ Set the quarter's outcome metric in [`context/strategy.md`](context/strategy.md) — only you can.
