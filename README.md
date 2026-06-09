@@ -1,6 +1,6 @@
 # SR-OS
 
-> Sergi Reina's AI operating system — a portable layer of context, memory, skills, automations, and a weekly audit that makes any AI work like me, across everything I build.
+> SR Operating System — a portable layer of context, memory, skills, automations, and a weekly audit that makes any AI work like me, across everything I build.
 
 Not a better model. A better setup. Five layers the agent reads so it knows who I am, what it can reach, what to reuse, what runs without me, and what to remember. One loop keeps it from rotting.
 
